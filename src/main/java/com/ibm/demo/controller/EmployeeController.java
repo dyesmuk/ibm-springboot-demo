@@ -20,28 +20,28 @@ public class EmployeeController {
 	private EmployeeService empService;
 
 	@GetMapping("employees/{id}")
-	public Employee getEmployeeById(@PathVariable(name = "id") int employeeId) {
+	public Employee getEmployeeById(@PathVariable(name = "") int employeeId) {
 		System.out.println(employeeId);
 		return empService.getEmployeeById(employeeId);
 	}
 
-//	@GetMapping("employees")
-//	public List<Employee> getAllEmployees() {
-//		return empService.getAllEmployees();
-//	}
-//
-//	public Employee addEmployee(Employee employee) {
-//		return empService.addEmployee(employee);
-//	}
-//
-//	public Employee updateEmployee(Employee employee) {
-//		return empService.updateEmployee(employee);
-//	}
-//
-//	public Employee deleteEmployee(int id) {
-//		int employeeId = 2;
-//		return empService.deleteEmployee(employeeId);
-//	}
+	@GetMapping("employees")
+	public List<Employee> getAllEmployees() {
+		return empService.getAllEmployees();
+	}
+
+	public Employee addEmployee(Employee employee) {
+		return empService.addEmployee(employee);
+	}
+
+	public Employee updateEmployee(Employee employee) {
+		return empService.updateEmployee(employee);
+	}
+
+	public Employee deleteEmployee(int id) {
+		int employeeId = 2;
+		return empService.deleteEmployee(employeeId);
+	}
 
 }
 

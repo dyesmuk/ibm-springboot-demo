@@ -21,27 +21,27 @@ public class EmployeeService {
 		return emp;
 	}
 
-//	public List<Employee> getAllEmployees() {
-//		System.out.println(employees.size());
-//		return employees;
-//	}
-//
-//	public Employee addEmployee(Employee employee) {
-//		// refactor the code below
-//		System.out.println();
-//		return null;
-//	}
-//	
-//	public Employee updateEmployee(Employee employee) {
-//		// refactor the code below
-//		System.out.println();
-//		return null;
-//	}
-//	
-//	public Employee deleteEmployee(int id) {
-//		// refactor the code below
-//		System.out.println();
-//		return null;
-//	}
+	public List<Employee> getAllEmployees() {
+		System.out.println(employees.size());
+		return employees;
+	}
+
+	public Employee addEmployee(Employee employee) {
+		// refactor the code below
+		System.out.println();
+		return null;
+	}
+	
+	public Employee updateEmployee(Employee employee) {
+		// refactor the code below
+		System.out.println();
+		return null;
+	}
+	
+	public Employee deleteEmployee(int id) {
+		// refactor the code below
+		System.out.println();
+		return null;
+	}
 
 }
