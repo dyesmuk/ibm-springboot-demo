@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ibm.demo.model.Employee;
 
+@Service
 public class EmployeeService {
 
 	private List<Employee> employees = new ArrayList<Employee>(Arrays.asList(new Employee(1, "Sonu", 90000),
