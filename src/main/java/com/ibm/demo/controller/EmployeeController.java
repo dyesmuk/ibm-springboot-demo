@@ -1,9 +1,9 @@
 package com.ibm.demo.controller;
 
-import java.net.http.HttpHeaders;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,11 +33,12 @@ public class EmployeeController {
 
 	@GetMapping("employees")
 	public ResponseEntity<List<Employee>> getAllEmployees() {
-
 		List<Employee> empList = empService.getAllEmployees();
 		HttpStatus status = HttpStatus.OK;
-
-		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, status);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Message", "Employees returned successfully.");
+		ResponseEntity<List<Employee>> response = 
+			new ResponseEntity<List<Employee>>(empList, headers, status);
 		return response;
 	}
 
