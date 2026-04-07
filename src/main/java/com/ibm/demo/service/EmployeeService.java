@@ -11,6 +11,13 @@ import com.ibm.demo.model.Employee;
 @Service
 public class EmployeeService {
 
+	// implement as applicable -
+	// can some error message be given in the following cases?
+	// What if the given employee id in getEmployeeById is not found?
+	// What if the given employee id in addEmployee is already present?
+	// What if the given employee id in updateEmployee is not found?
+	// What if the given employee id in deleteEmployee is not found?
+
 	private List<Employee> employees = new ArrayList<Employee>(Arrays.asList(new Employee(101, "Sonu", 90000),
 			new Employee(102, "Monu", 95000), new Employee(103, "Tonu", 92000), new Employee(104, "Ronu", 94000)));
 
@@ -23,19 +30,6 @@ public class EmployeeService {
 		return null;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public List<Employee> getAllEmployees() {
 		System.out.println(employees.size());
 		return employees;
