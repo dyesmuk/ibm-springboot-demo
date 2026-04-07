@@ -3,9 +3,11 @@ package com.ibm.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.demo.model.Employee;
@@ -30,16 +32,18 @@ public class EmployeeController {
 		return empService.getAllEmployees();
 	}
 
+	@PostMapping("employees")
 	public Employee addEmployee(Employee employee) {
 		return empService.addEmployee(employee);
 	}
 
+	@PutMapping("employees")
 	public Employee updateEmployee(Employee employee) {
 		return empService.updateEmployee(employee);
 	}
 
-	public Employee deleteEmployee(int id) {
-		int employeeId = 2;
+	@DeleteMapping("employees/{id}")
+	public Employee deleteEmployee(@PathVariable(name = "") int employeeId) {
 		return empService.deleteEmployee(employeeId);
 	}
 
