@@ -26,9 +26,9 @@ public class EmployeeController {
 	private EmployeeService empService;
 
 	@GetMapping("employees/{id}")
-	public Employee getEmployeeById(@PathVariable(name = "id") int employeeId) {
-		System.out.println(employeeId);
-		return empService.getEmployeeById(employeeId);
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable(name = "id") int employeeId) {
+		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
+				.body(empService.getEmployeeById(employeeId));
 	}
 
 	@GetMapping("employees")
@@ -37,30 +37,29 @@ public class EmployeeController {
 		HttpStatus status = HttpStatus.OK;
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Message", "Employees returned successfully.");
-		ResponseEntity<List<Employee>> response = 
-			new ResponseEntity<List<Employee>>(empList, headers, status);
+		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
 		return response;
 	}
 
-//	@GetMapping("employees")
-//	public List<Employee> getAllEmployees() {
-//		return empService.getAllEmployees();
-//	}
-
 	@PostMapping("employees")
-	public Employee addEmployee(@RequestBody Employee employee) {
-		return empService.addEmployee(employee);
+	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
+		return ResponseEntity.status(201).header("Message", "Employee added successfully.")
+				.body(empService.addEmployee(employee));
+
 	}
 
 	@PutMapping("employees")
-	public Employee updateEmployee(@RequestBody Employee employee) {
-		return empService.updateEmployee(employee);
+	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
+		return ResponseEntity.status(201).header("Message", "Employee updated successfully.")
+				.body(empService.updateEmployee(employee));
+
 	}
 
 	@DeleteMapping("employees/{id}")
-	public Employee deleteEmployee(@PathVariable(name = "id") int employeeId) {
-		System.out.println(employeeId);
-		return empService.deleteEmployee(employeeId);
+	public ResponseEntity<Employee> deleteEmployee(@PathVariable(name = "id") int employeeId) {
+		return ResponseEntity.status(201).header("Message", "Employee deleted successfully.")
+				.body(empService.deleteEmployee(employeeId));
+
 	}
 }
 
