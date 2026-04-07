@@ -14,7 +14,7 @@ public class HelloController {
 		System.out.println("Hello");
 		return "Hello world!";
 	}
-	
+
 	@RequestMapping("hi")
 	public String hi() {
 		System.out.println("Hi");
@@ -27,6 +27,3 @@ public class HelloController {
 		return "Welcome to IBM Springboot app";
 	}
 }
-
-
-
