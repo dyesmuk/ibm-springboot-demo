@@ -70,13 +70,6 @@ public class Employee {
 		this.department = department;
 	}
 
-	public Employee(String name, double salary, Department department) {
-		super();
-		this.name = name;
-		this.salary = salary;
-		this.department = department;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -99,16 +92,6 @@ public class Employee {
 
 	public void setSalary(double salary) {
 		this.salary = salary;
-	}
-	
-	
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
 	}
 
 	@Override

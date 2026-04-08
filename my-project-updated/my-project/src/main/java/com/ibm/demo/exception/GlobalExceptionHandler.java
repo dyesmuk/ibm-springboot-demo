@@ -13,18 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(EmployeeNotFoundException.class)
-	public ResponseEntity<Map<String, Object>> handleEmployeeNotFound(EmployeeNotFoundException ex) {
-
-		Map<String, Object> error = new HashMap<>();
-		error.put("timestamp", LocalDateTime.now());
-		error.put("message", ex.getMessage());
-		error.put("status", HttpStatus.NOT_FOUND.value());
-
-		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
-	}
-
-	@ExceptionHandler(DepartmentNotFoundException.class)
-	public ResponseEntity<Map<String, Object>> handleDepartmentNotFound(DepartmentNotFoundException ex) {
+	public ResponseEntity<Map<String, Object>> handleNotFound(EmployeeNotFoundException ex) {
 
 		Map<String, Object> error = new HashMap<>();
 		error.put("timestamp", LocalDateTime.now());

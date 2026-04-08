@@ -14,13 +14,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	public abstract List<Employee> findByNameIgnoreCase(String name);
 
-//	public abstract List<Employee> findByNameStartingWith(String name);
-//
-//	public abstract List<Employee> findBySalaryGreaterThan(String name);
-//
-//	public abstract List<Employee> findBySalaryLessThan(String name);
-//
-//	public abstract List<Employee> findBySalaryInBetween(String name);
+	public abstract List<Employee> findByNameStartingWith(String name);
+
+	public abstract List<Employee> findBySalaryGreaterThan(String name);
+
+	public abstract List<Employee> findBySalaryLessThan(String name);
+
+	public abstract List<Employee> findBySalaryInBetween(String name);
 
 	// public abstract List<Employee> findByEmailIgnoreCase(String name);
 
