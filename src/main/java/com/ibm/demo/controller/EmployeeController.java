@@ -27,19 +27,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 
-	@GetMapping("employees/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable(name = "id") int employeeId) {
-		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
-				.body(empService.getEmployeeById(employeeId));
-	}
-
-////	Make this code work 
-//	@GetMapping("employees/name/{name}")
-//	public ResponseEntity<List<Employee>> getEmployeesByName(@PathVariable(name = "name") String name) {
-//		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
-//				.body(empService.getEmployeesByName(name));
-//	}
-
 	@GetMapping("employees")
 	public ResponseEntity<List<Employee>> getAllEmployees() {
 		List<Employee> empList = empService.getAllEmployees();
@@ -48,6 +35,19 @@ public class EmployeeController {
 		headers.add("Message", "Employees returned successfully.");
 		ResponseEntity<List<Employee>> response = new ResponseEntity<List<Employee>>(empList, headers, status);
 		return response;
+	}
+
+	@GetMapping("employees/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable(name = "id") int employeeId) {
+		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
+				.body(empService.getEmployeeById(employeeId));
+	}
+
+//	Make this code work 
+	@GetMapping("employees/name/{name}")
+	public ResponseEntity<List<Employee>> getEmployeesByName(@PathVariable(name = "name") String name) {
+		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
+				.body(empService.getEmployeesByName(name));
 	}
 
 	@PostMapping("employees")

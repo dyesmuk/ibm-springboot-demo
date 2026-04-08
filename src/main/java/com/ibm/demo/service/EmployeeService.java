@@ -17,14 +17,18 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepository empRepository;
 
+	public List<Employee> getAllEmployees() {
+		// should we throw an exception, if employees are not found?
+		return empRepository.findAll();
+	}
+
 	public Employee getEmployeeById(int id) {
 		return empRepository.findById(id)
 				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
 	}
 
-	public List<Employee> getAllEmployees() {
-		// should we throw an exception, if employees are not found?
-		return empRepository.findAll();
+	public List<Employee> getEmployeesByName(String name) {
+		return empRepository.findByName(name);
 	}
 
 	public Employee addEmployee(Employee employee) {
@@ -42,6 +46,7 @@ public class EmployeeService {
 		return emp;
 
 	}
+
 }
 
 //package com.ibm.demo.service;
