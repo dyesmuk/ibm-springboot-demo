@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ibm.demo.exception.EmployeeNotFoundException;
 import com.ibm.demo.model.Employee;
 import com.ibm.demo.repository.EmployeeRepository;
 
@@ -12,15 +13,17 @@ import com.ibm.demo.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {
-	
+
 	@Autowired
 	private EmployeeRepository empRepository;
 
 	public Employee getEmployeeById(int id) {
-		return empRepository.findById(id).orElse(null);
+		return empRepository.findById(id)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
 	}
 
 	public List<Employee> getAllEmployees() {
+		// should we throw an exception, if employees are not found?
 		return empRepository.findAll();
 	}
 
@@ -33,14 +36,13 @@ public class EmployeeService {
 	}
 
 	public Employee deleteEmployee(int id) {
-		Employee emp = empRepository.findById(id).orElse(null);
-		if (emp != null) {
-			empRepository.deleteById(id);
-		}
+		Employee emp = empRepository.findById(id)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
+		empRepository.delete(emp);
 		return emp;
+
 	}
 }
-
 
 //package com.ibm.demo.service;
 //
