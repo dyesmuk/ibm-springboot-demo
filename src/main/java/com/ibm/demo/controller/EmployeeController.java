@@ -33,6 +33,13 @@ public class EmployeeController {
 				.body(empService.getEmployeeById(employeeId));
 	}
 
+////	Make this code work 
+//	@GetMapping("employees/name/{name}")
+//	public ResponseEntity<Employee> getEmployeeByName(@PathVariable(name = "name") String name) {
+//		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
+//				.body(empService.getEmployeeByName(name));
+//	}
+
 	@GetMapping("employees")
 	public ResponseEntity<List<Employee>> getAllEmployees() {
 		List<Employee> empList = empService.getAllEmployees();
