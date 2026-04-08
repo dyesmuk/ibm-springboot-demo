@@ -42,7 +42,7 @@
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 		
-			<!-- database related - 3 dependencies -->
+		<!-- database related - 3 dependencies -->
 
 	<!-- 1 - spring data jpa -->
 
