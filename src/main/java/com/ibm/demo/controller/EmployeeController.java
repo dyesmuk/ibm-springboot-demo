@@ -35,9 +35,9 @@ public class EmployeeController {
 
 ////	Make this code work 
 //	@GetMapping("employees/name/{name}")
-//	public ResponseEntity<Employee> getEmployeeByName(@PathVariable(name = "name") String name) {
+//	public ResponseEntity<List<Employee>> getEmployeesByName(@PathVariable(name = "name") String name) {
 //		return ResponseEntity.status(200).header("Message", "Employee returned successfully.")
-//				.body(empService.getEmployeeByName(name));
+//				.body(empService.getEmployeesByName(name));
 //	}
 
 	@GetMapping("employees")
