@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.demo.model.Employee;
 import com.ibm.demo.service.EmployeeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api")
 public class EmployeeController {
@@ -42,7 +44,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping("employees")
-	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
+	public ResponseEntity<Employee> addEmployee(@Valid @RequestBody Employee employee) {
 		return ResponseEntity.status(201).header("Message", "Employee added successfully.")
 				.body(empService.addEmployee(employee));
 

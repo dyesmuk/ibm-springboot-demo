@@ -1,19 +1,42 @@
 package com.ibm.demo.model;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Positive;
 
-@Entity
+@Entity // mandatory annotation - creates table
+@Table(name = "employees") // optional - gives custom name to the table
 public class Employee {
 
-	@Id // PK column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id // PK column // mandatory annotation
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // generated PK values automatically
+	@Column(name = "id") // optional - gives custom name to the column
 	private int id;
 
+	@Column(name = "name", nullable = false, length = 100)
 	private String name;
+	
+	@Column(name = "salary", nullable = false)
+	@Positive(message = "Salary must be greater than 0")
 	private double salary;
+	
+//	@Column(name = "email", unique = true)
+//	private String email;
+	
+//	@CreationTimestamp
+//	private LocalDateTime createdAt;
+
+//	@UpdateTimestamp
+//	private LocalDateTime updatedAt;
 
 	public Employee() {
 		super();
