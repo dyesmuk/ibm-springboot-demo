@@ -1,4 +1,4 @@
-package com.ibm.demo.controller;
+package com.ibm.demo.repository;
 
 import org.springframework.stereotype.Repository;
 

@@ -7,9 +7,12 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Positive;
 
@@ -24,14 +27,18 @@ public class Employee {
 
 	@Column(name = "name", nullable = false, length = 100)
 	private String name;
-	
+
 	@Column(name = "salary", nullable = false)
 	@Positive(message = "Salary must be greater than 0")
 	private double salary;
-	
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "department_id", nullable = false)
+	private Department department;
+
 //	@Column(name = "email", unique = true)
 //	private String email;
-	
+
 //	@CreationTimestamp
 //	private LocalDateTime createdAt;
 
@@ -53,6 +60,14 @@ public class Employee {
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
+	}
+
+	public Employee(int id, String name, double salary, Department department) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+		this.department = department;
 	}
 
 	public int getId() {
