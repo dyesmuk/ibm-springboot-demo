@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import com.ibm.demo.model.Employee;
 import com.ibm.demo.repository.EmployeeRepository;
 
+// implemented business logic 
+
 @Service
 public class EmployeeService {
-
+	
 	@Autowired
 	private EmployeeRepository empRepository;
 
@@ -38,6 +40,49 @@ public class EmployeeService {
 		return emp;
 	}
 }
+
+
+//package com.ibm.demo.service;
+//
+//import java.util.List;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//
+//import com.ibm.demo.model.Employee;
+//import com.ibm.demo.repository.EmployeeRepository;
+//
+//// implemented basic jpa 
+//@Service
+//public class EmployeeService {
+//	
+//	@Autowired
+//	private EmployeeRepository empRepository;
+//
+//	public Employee getEmployeeById(int id) {
+//		return empRepository.findById(id).orElse(null);
+//	}
+//
+//	public List<Employee> getAllEmployees() {
+//		return empRepository.findAll();
+//	}
+//
+//	public Employee addEmployee(Employee employee) {
+//		return empRepository.save(employee);
+//	}
+//
+//	public Employee updateEmployee(Employee employee) {
+//		return empRepository.save(employee);
+//	}
+//
+//	public Employee deleteEmployee(int id) {
+//		Employee emp = empRepository.findById(id).orElse(null);
+//		if (emp != null) {
+//			empRepository.deleteById(id);
+//		}
+//		return emp;
+//	}
+//}
 
 //package com.ibm.demo.service;
 //

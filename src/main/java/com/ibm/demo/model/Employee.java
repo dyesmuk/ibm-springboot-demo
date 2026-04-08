@@ -1,12 +1,15 @@
 package com.ibm.demo.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Employee {
 
-	@Id
+	@Id // PK column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
@@ -14,6 +17,12 @@ public class Employee {
 
 	public Employee() {
 		super();
+	}
+
+	public Employee(String name, double salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
 	}
 
 	public Employee(int id, String name, double salary) {
@@ -46,6 +55,12 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+	}
+
 }
 
 //package com.ibm.demo.model;
