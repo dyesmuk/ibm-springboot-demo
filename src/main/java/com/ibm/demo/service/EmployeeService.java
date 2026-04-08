@@ -28,7 +28,7 @@ public class EmployeeService {
 	}
 
 	public List<Employee> getEmployeesByName(String name) {
-		return empRepository.findByName(name);
+		return empRepository.findByNameIgnoreCase(name);
 	}
 
 	public Employee addEmployee(Employee employee) {
